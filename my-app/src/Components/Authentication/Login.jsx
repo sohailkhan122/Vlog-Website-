@@ -20,7 +20,7 @@ const Login = () => {
     const onFinish = async (values) => {
         setLoading(true); // Set loading state to true when login button is clicked
         try {
-            const response = await axios.post('http://localhost:5000/login', values);
+            const response = await axios.post('https://vlog-website-4joa.onrender.com/login', values);
             const decoded = jwtDecode(response.data.token);
             localStorage.setItem('user', JSON.stringify(decoded));
             message.success('User LogIn successfully!');

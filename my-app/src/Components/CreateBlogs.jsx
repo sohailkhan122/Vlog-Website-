@@ -23,7 +23,7 @@ const CreateBlogs = () => {
     useEffect(() => {
         const getSingleDocument = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/getSingleDocument/${id}`);
+                const response = await axios.get(`https://vlog-website-4joa.onrender.com/getSingleDocument/${id}`);
                 setAccount(response.data)
             } catch (error) {
                 console.log(error)
@@ -45,7 +45,7 @@ const CreateBlogs = () => {
             }
             console.log(formData)
             const response = await axios.post(
-                'http://localhost:5000/createBlog',
+                'https://vlog-website-4joa.onrender.com/createBlog',
                 formData,
                 {
                     headers: {

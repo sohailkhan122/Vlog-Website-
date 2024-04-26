@@ -20,7 +20,7 @@ const Blogs = () => {
         const fetchData = async () => {
             const id = userData._id;
             try {
-                const response = await axios.get(`http://localhost:5000/getSingleDocument/${id}`);
+                const response = await axios.get(`https://vlog-website-4joa.onrender.com/getSingleDocument/${id}`);
                 setAccount(response.data);
             } catch (error) {
                 console.log(error);

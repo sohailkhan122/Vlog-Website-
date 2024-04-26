@@ -15,7 +15,7 @@ const MyProfile = () => {
             const userData = JSON.parse(localStorage.getItem("user"));
             const id = userData._id;
             try {
-                const response = await axios.get(`http://localhost:5000/getSingleDocument/${id}`);
+                const response = await axios.get(`https://vlog-website-4joa.onrender.com/getSingleDocument/${id}`);
                 setAccount(response.data);
             } catch (error) {
                 console.log(error);
@@ -38,7 +38,7 @@ const MyProfile = () => {
                 formData.append('file', fileList[0].originFileObj);
             }
 
-            const response = await axios.put('http://localhost:5000/updateUserProfile', formData, {
+            const response = await axios.put('https://vlog-website-4joa.onrender.com/updateUserProfile', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -24,7 +24,7 @@ const Details = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/getSingleBlogController/${id}`);
+                const response = await axios.get(`https://vlog-website-4joa.onrender.com/getSingleBlogController/${id}`);
                 setBlog(response.data.blog);
                 setLoading(false);
                 setEditedTitle(response.data.blog.title);
@@ -64,12 +64,12 @@ const Details = () => {
             if (fileList.length > 0) {
                 formData.append('file', fileList[0].originFileObj);
             }
-            const response = await axios.put(`http://localhost:5000/updateBlogController/${id}`, formData, {
+            const response = await axios.put(`https://vlog-website-4joa.onrender.com/updateBlogController/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            await axios.get(`http://localhost:5000/getSingleBlogController/${id}`);
+            await axios.get(`https://vlog-website-4joa.onrender.com/getSingleBlogController/${id}`);
             setBlog(response.data.blog);
             setUpdateUser((prev) => !prev);
             console.log('Blog saved successfully:', response.data);
@@ -108,7 +108,7 @@ const Details = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/deleteBlogController/${id}`);
+            const response = await axios.delete(`https://vlog-website-4joa.onrender.com/deleteBlogController/${id}`);
             message.success('Blog Delete successfully')
             navigate('/blogs')
             return response.data;

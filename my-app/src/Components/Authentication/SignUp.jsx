@@ -27,7 +27,7 @@ const SignUp = () => {
             formData.append('email', email);
             formData.append('password', password);
 
-            const response = await axios.post('http://localhost:5000/userSignUp', formData);
+            const response = await axios.post('https://vlog-website-4joa.onrender.com/userSignUp', formData);
             console.log(response);
 
             form.resetFields();

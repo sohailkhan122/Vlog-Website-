@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const getAllBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/getAllBlogsController');
+                const response = await axios.get('https://vlog-website-4joa.onrender.com/getAllBlogsController');
                 setAllBlogs(response.data.blogs);
                 setLoading(false);
             } catch (error) {

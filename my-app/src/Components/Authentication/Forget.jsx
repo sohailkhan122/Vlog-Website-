@@ -9,7 +9,7 @@ const Forget = () => {
 
         console.log(values)
         try {
-            const response = await axios.post('http://localhost:8000/forgetPassword', values);
+            const response = await axios.post('https://vlog-website-4joa.onrender.com/forgetPassword', values);
         } catch (error) {
             console.log(error)
         }
