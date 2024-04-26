@@ -28,7 +28,7 @@ const Content = ({ account }) => {
                     </div>
                     <p>Welcome to your Account</p>
                     <div className="sidebarButton">
-                        <Button icon={<HomeOutlined />} onClick={() => setValue('Home')}>Home</Button>
+                        <Button icon={<HomeOutlined />}  style={{ backgroundColor: value === 'Home' ? '#8a33fd' : '' }} onClick={() => setValue('Home')}>Home</Button>
                         <Link to={'/createBlogs'}><Button icon={<UserOutlined />} >Create Blogs</Button></Link>
                         <Link to={'/blogs/myProfile'}><Button icon={<IdcardOutlined />}>My Profile</Button></Link>
                         <Link to={'/about'}><Button icon={<HeartOutlined />}>About</Button></Link>

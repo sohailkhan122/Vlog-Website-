@@ -33,8 +33,8 @@ const Home = () => {
                         <Link style={{ textDecoration: 'none' }} to={`/details/${blogs._id}`} key={blogs._id} >
                             <Card
                                 hoverable
-                                style={{ width: 290, height: 400 }}
-                                cover={<img alt="example" width='290px' height='300px' src={URL.createObjectURL(new Blob([new Uint8Array(blogs.image.data.data)], { type: blogs.image.contentType }))} />}
+                                style={{ width: 490, height: 400 }}
+                                cover={<img alt="example" width='290px' height='300px' style={{objectFit:'cover'}} src={URL.createObjectURL(new Blob([new Uint8Array(blogs.image.data.data)], { type: blogs.image.contentType }))} />}
                             >
                                 <Meta title={blogs.title} description={`Created by: ${blogs.userCreateName}`} />
                             </Card>

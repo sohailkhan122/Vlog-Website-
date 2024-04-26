@@ -1,4 +1,5 @@
-import { Upload, Button, Form, Input, message } from 'antd';
+import React, { useState } from 'react';
+import { Upload, Button, Form, Input, message, Spin } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
@@ -12,9 +13,11 @@ const normFile = (e) => {
 
 const SignUp = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false); // State to track loading status
     const [form] = Form.useForm();
 
     const onFinish = async (values) => {
+        setLoading(true); // Set loading state to true when signup button is clicked
         const { name, email, password, fileList } = values;
 
         try {
@@ -30,10 +33,12 @@ const SignUp = () => {
             form.resetFields();
             message.success('User signed up successfully!');
 
-            navigate('/')
+            navigate('/');
         } catch (error) {
             console.error('Error during sign up:', error);
             message.error('Sign up failed. Please try again.');
+        } finally {
+            setLoading(false); // Reset loading state after signup request is completed
         }
     };
 
@@ -111,12 +116,13 @@ const SignUp = () => {
                         </Form.Item>
 
                         <Form.Item>
-                            <Button style={{ width: '100%' }} type="primary" htmlType="submit">
-                                Submit
+                            {/* Show a Spin component inside the signup button if loading is true */}
+                            <Button style={{ width: '100%' }} type="primary" htmlType="submit" loading={loading}>
+                                {loading ? <Spin /> : "Submit"}
                             </Button>
                         </Form.Item>
                     </Form>
-                    <p>Always have an account? <Link to={'/'}><span>Log In</span></Link></p>
+                    <p>Already have an account? <Link to={'/'}><span>Log In</span></Link></p>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ const CreateBlogs = () => {
     const [image, setImage] = useState(null)
     const [preImage, setPreImage] = useState(null)
     const [account, setAccount] = useState({});
-    const userData = JSON.parse(localStorage.getItem("user"))
+    const userData = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')): null;
 
     const id = userData._id
     useEffect(() => {

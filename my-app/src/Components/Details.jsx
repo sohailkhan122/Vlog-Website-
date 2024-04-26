@@ -19,7 +19,7 @@ const Details = () => {
     const [updateUser, setUpdateUser] = useState(false);
     const [fileList, setFileList] = useState([]);
     const [saving, setSaving] = useState(false);
-    const userData = JSON.parse(localStorage.getItem("user"));
+    const userData = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')): null;
 
     useEffect(() => {
         const fetchBlog = async () => {
